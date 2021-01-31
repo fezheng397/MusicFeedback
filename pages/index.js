@@ -1,65 +1,60 @@
-import Head from 'next/head'
-import styles from '../styles/Home.module.css'
+import React, { useEffect } from 'react';
+import Head from 'next/head';
+import styles from '../styles/Home.module.css';
+import AWS from 'aws-sdk';
 
-export default function Home() {
+export default function Home({
+  bucket,
+  REACT_AWS_S3_ACCESS_KEY_ID,
+  REACT_AWS_S3_SECRET_ACCESS_KEY,
+}) {
+  // All aws s3 client code should be moved to a react context
+  AWS.config = new AWS.Config();
+  AWS.config.accessKeyId = REACT_AWS_S3_ACCESS_KEY_ID;
+  AWS.config.secretAccessKey = REACT_AWS_S3_SECRET_ACCESS_KEY;
+  AWS.config.region = 'us-west-1';
+
+  const s3 = new AWS.S3({
+    signatureVersion: 'v4',
+  });
+
+  const params = {
+    Bucket: bucket,
+    Key: 'i like me better 105.mp3',
+  };
+  const url = s3.getSignedUrl('getObject', params);
+
+  function playAudio() {
+    const audioEl = document.getElementsByClassName('audio-element')[0];
+    console.log(audioEl);
+    audioEl.play();
+  }
+  console.log('Url:', url);
+
   return (
     <div className={styles.container}>
-      <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
-      <main className={styles.main}>
-        <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
-
-        <p className={styles.description}>
-          Get started by editing{' '}
-          <code className={styles.code}>pages/index.js</code>
-        </p>
-
-        <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h3>Documentation &rarr;</h3>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
-
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h3>Learn &rarr;</h3>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
-            className={styles.card}
-          >
-            <h3>Examples &rarr;</h3>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-          >
-            <h3>Deploy &rarr;</h3>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
-        </div>
-      </main>
-
-      <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
-        </a>
-      </footer>
+      <button onClick={playAudio}>
+        <span>Play Audio</span>
+      </button>
+      <audio className='audio-element' type='audio/mpeg'>
+        <source src={url}></source>
+      </audio>
     </div>
-  )
+  );
+}
+
+export async function getStaticProps() {
+  const {
+    REACT_AWS_S3_ACCESS_KEY_ID,
+    REACT_AWS_S3_SECRET_ACCESS_KEY,
+    REACT_AWS_S3_AUDIO_BUCKET,
+  } = process.env;
+
+  return {
+    props: {
+      bucket: REACT_AWS_S3_AUDIO_BUCKET,
+      REACT_AWS_S3_ACCESS_KEY_ID,
+      REACT_AWS_S3_SECRET_ACCESS_KEY,
+    },
+  };
 }
