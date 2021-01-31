@@ -1,35 +1,22 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import Head from 'next/head';
 import styles from '../styles/Home.module.css';
-import AWS from 'aws-sdk';
+import { useS3 } from 's3/context/S3Context';
 
-export default function Home({
-  bucket,
-  REACT_AWS_S3_ACCESS_KEY_ID,
-  REACT_AWS_S3_SECRET_ACCESS_KEY,
-}) {
-  // All aws s3 client code should be moved to a react context
-  AWS.config = new AWS.Config();
-  AWS.config.accessKeyId = REACT_AWS_S3_ACCESS_KEY_ID;
-  AWS.config.secretAccessKey = REACT_AWS_S3_SECRET_ACCESS_KEY;
-  AWS.config.region = 'us-west-1';
+export default function Home({}) {
+  const { getAudioFile, s3 } = useS3();
+  const [audioUrl, setAudioUrl] = useState('');
 
-  const s3 = new AWS.S3({
-    signatureVersion: 'v4',
-  });
-
-  const params = {
-    Bucket: bucket,
-    Key: 'i like me better 105.mp3',
-  };
-  const url = s3.getSignedUrl('getObject', params);
+  useEffect(() => {
+    setAudioUrl(getAudioFile('i like me better 105.mp3'));
+  }, [getAudioFile, s3]);
 
   function playAudio() {
     const audioEl = document.getElementsByClassName('audio-element')[0];
     console.log(audioEl);
     audioEl.play();
   }
-  console.log('Url:', url);
+  console.log('Url:', audioUrl);
 
   return (
     <div className={styles.container}>
@@ -37,24 +24,8 @@ export default function Home({
         <span>Play Audio</span>
       </button>
       <audio className='audio-element' type='audio/mpeg'>
-        <source src={url}></source>
+        <source src={audioUrl}></source>
       </audio>
     </div>
   );
-}
-
-export async function getStaticProps() {
-  const {
-    REACT_AWS_S3_ACCESS_KEY_ID,
-    REACT_AWS_S3_SECRET_ACCESS_KEY,
-    REACT_AWS_S3_AUDIO_BUCKET,
-  } = process.env;
-
-  return {
-    props: {
-      bucket: REACT_AWS_S3_AUDIO_BUCKET,
-      REACT_AWS_S3_ACCESS_KEY_ID,
-      REACT_AWS_S3_SECRET_ACCESS_KEY,
-    },
-  };
 }
