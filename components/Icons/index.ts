@@ -1,0 +1,25 @@
+export { default as Icon } from './Icon';
+export {
+	AddArtist,
+	Close,
+	Computer,
+	Device,
+	HeartFilled,
+	Heart,
+	Info,
+	LogoColored,
+	LogoFull,
+	Logo,
+	Next,
+	Notification,
+	Pause,
+	Person,
+	Phone,
+	Play,
+	Plus,
+	Previous,
+	Search,
+	Spotify,
+	Volume,
+	Wordmark
+} from './IconComponents';

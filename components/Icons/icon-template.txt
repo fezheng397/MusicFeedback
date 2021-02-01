@@ -1,0 +1,12 @@
+// GENERATED-ICON
+
+import * as React from 'react';
+import { default as Icon, IconProps } from '../Icon';
+
+export default function %%ICON_NAME%%(props: IconProps) {
+  return (
+    <Icon %%ICON_PROPS%% {...props}>
+      %%ICON_PATH%%
+    </Icon>
+  );
+}

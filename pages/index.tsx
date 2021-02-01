@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import Head from 'next/head';
-import styles from '../styles/Home.module.css';
 import { useS3 } from 's3/context/S3Context';
 import { Waveform } from 'components/Waveform';
 import { Header1 } from 'components/Typography';
+import { Button } from 'components/Button';
+import { Play } from 'components/Icons';
+import { Container } from 'components/Container';
 
 export default function Home({}) {
-  const { getAudioFile, s3 } = useS3();
+  const { getAudioFile } = useS3();
   const [audioUrl, setAudioUrl] = useState('');
 
   useEffect(() => {
@@ -16,9 +18,11 @@ export default function Home({}) {
   }, []);
 
   return (
-    <div>
+    <Container size='lg'>
       <Header1>Hello header</Header1>
+      <Button size='lg'>Button text</Button>
+      <Play size={24} />
       <Waveform audioUrl={audioUrl} />
-    </div>
+    </Container>
   );
 }
