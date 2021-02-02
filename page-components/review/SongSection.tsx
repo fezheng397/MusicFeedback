@@ -25,7 +25,7 @@ const SongSection = () => {
           Edit
         </Button>
       </SongTitleSection>
-      <Paragraph2 marginBottom='layout3'>
+      <Paragraph2 marginBottom='layout5'>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent
         aliquet pharetra justo at scelerisque. Nunc auctor elit tincidunt,
         rhoncus dui eget, aliquet nibh. Nulla neque est, pulvinar ut leo vitae,
@@ -42,7 +42,7 @@ const SongSection = () => {
 const SongTitleSection = styled.div`
   display: flex;
   align-items: center;
-  margin-bottom: ${({ theme }) => theme.spacing.layout3};
+  margin-bottom: ${({ theme }) => theme.spacing.layout4};
 `;
 
 export default SongSection;

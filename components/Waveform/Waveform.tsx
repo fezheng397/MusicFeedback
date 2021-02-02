@@ -33,7 +33,7 @@ const Waveform: React.FC<Props> = ({ audioUrl }) => {
           barRadius: 3,
           cursorWidth: 1,
           scrollParent: false,
-          height: 200,
+          height: 120,
           barGap: 3,
           plugins: [
             CursorPlugin.create({
@@ -72,7 +72,7 @@ const Waveform: React.FC<Props> = ({ audioUrl }) => {
         <div id='waveform'></div>
       </WaveformContainer>
       <ControlBar>
-        <PlayButton onClick={playAudio} isPlaying={false} />
+        <PlayButton onClick={playAudio} isPlaying={false} size={48} />
       </ControlBar>
     </div>
   );
@@ -88,7 +88,7 @@ const ControlBar = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: ${({ theme }) => theme.spacing.spacing5} 0;
+  padding: ${({ theme }) => theme.spacing.layout4} 0;
 `;
 
 export default Waveform;

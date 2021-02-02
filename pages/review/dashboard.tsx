@@ -1,14 +1,14 @@
 import React from 'react';
-import { Section } from 'components/Layout';
+import { Page, Section } from 'components/Layout';
 import { SongSection } from 'page-components/review';
 
 const ReviewDashboard = () => {
   return (
-    <div>
+    <Page>
       <Section>
         <SongSection />
       </Section>
-    </div>
+    </Page>
   );
 };
 
