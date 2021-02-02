@@ -1,6 +1,6 @@
 import React from 'react';
 import { Page, Section } from 'components/Layout';
-import { SongSection } from 'page-components/review';
+import { SongSection } from 'page-components/Review';
 
 const ReviewDashboard = () => {
   return (
