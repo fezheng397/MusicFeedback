@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "generate-icons": "node components/Icons/generate-icons.js"
   },
   "dependencies": {
     "@types/react-modal": "^3.10.6",
@@ -14,6 +15,7 @@
     "aws-sdk": "^2.834.0",
     "next": "10.0.6",
     "polished": "^4.1.0",
+    "prettier": "^2.2.1",
     "react": "17.0.1",
     "react-dom": "17.0.1",
     "react-modal": "^3.12.1",

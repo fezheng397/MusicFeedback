@@ -52,6 +52,7 @@ export const primaryButtonTheme = createButtonTheme({
 export const secondaryButtonTheme = createButtonTheme({
   color: theme.text.primary,
   backgroundColor: theme.background.primary,
+  outlineColor: theme.text.primary,
   hoverColor: theme.text.active,
   hoverOutlineColor: theme.background.brand,
   focusOutlineColor: theme.color.brand.base,
@@ -92,14 +93,14 @@ const sizeConfig = {
     padding: `${rem(10)} ${rem(16)}`,
   },
   md: {
-    borderRadius: rem(10),
+    borderRadius: rem(8),
     text: label2,
     padding: `${rem(12)} ${rem(20)}`,
   },
   lg: {
-    borderRadius: rem(12),
+    borderRadius: rem(10),
     text: label2,
-    padding: `${rem(14)} ${rem(24)}`,
+    padding: `${rem(14)} ${rem(20)}`,
   },
   link: {
     borderRadius: rem(8),

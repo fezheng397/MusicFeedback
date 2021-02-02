@@ -1,7 +1,7 @@
 // GENERATED-ICON
 
-import * as React from 'react';
-import { default as Icon, IconProps } from '../Icon';
+import * as React from "react";
+import { default as Icon, IconProps } from "../Icon";
 
 export default function Previous(props: IconProps) {
   return (

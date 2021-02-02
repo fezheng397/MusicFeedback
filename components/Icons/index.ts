@@ -1,8 +1,17 @@
 export { default as Icon } from './Icon';
 export {
 	AddArtist,
+	ArrowDown,
+	ArrowLeft,
+	ArrowRight,
+	ArrowUp,
+	ChevronDown,
+	ChevronLeft,
+	ChevronRight,
+	ChevronUp,
 	Close,
 	Computer,
+	Copy,
 	Device,
 	HeartFilled,
 	Heart,
@@ -19,6 +28,7 @@ export {
 	Plus,
 	Previous,
 	Search,
+	Settings,
 	Spotify,
 	Volume,
 	Wordmark
