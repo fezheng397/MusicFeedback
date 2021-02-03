@@ -1,38 +1,45 @@
-import { createStore, compose, applyMiddleware } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
+import { createWrapper, HYDRATE } from 'next-redux-wrapper';
 import thunkMiddleware from 'redux-thunk';
 import getReducers from 'redux/reducers';
-import { StateLoader } from './stateLoader';
 
-// TODO create custom typing system
-declare global {
-  interface Window {
-    __REDUX_DEVTOOLS_EXTENSION_COMPOSE__?: typeof compose;
+// BINDING MIDDLEWARE
+const bindMiddleware = (middleware) => {
+  if (process.env.NODE_ENV !== 'production') {
+    const { composeWithDevTools } = require('redux-devtools-extension');
+    return composeWithDevTools(applyMiddleware(...middleware));
   }
-}
-
-const config = {
-  // TOGGLE_TODO will not be triggered in other tabs
-  blacklist: ['TOGGLE_TODO'],
+  return applyMiddleware(...middleware);
 };
 
-const stateLoader = new StateLoader();
-const middleware = [thunkMiddleware];
+const makeStore = ({ isServer }) => {
+  if (isServer) {
+    //If it's on server side, create a store
+    return createStore(getReducers(), bindMiddleware([thunkMiddleware]));
+  } else {
+    //If it's on client side, create a store which will persist
+    const { persistStore, persistReducer } = require('redux-persist');
+    const storage = require('redux-persist/lib/storage').default;
 
-const composeEnhancers =
-  (process.env.NODE_ENV === 'development' &&
-    window &&
-    window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) ||
-  compose;
+    const persistConfig = {
+      key: 'nextjs',
+      whitelist: ['player'], // only counter will be persisted, add other reducers if needed
+      storage, // if needed, use a safer storage
+    };
 
-const composedEnhancers = composeEnhancers(applyMiddleware(...middleware));
+    const persistedReducer = persistReducer(persistConfig, getReducers()); // Create a new reducer with our existing reducer
 
-// init the store with the thunkMiddleware which allows us to make async actions play nicely with the store
-export const initStore = (initialState?: Object) => {
-  let store = createStore(getReducers(), initialState || {}, composedEnhancers);
+    const store = createStore(
+      persistedReducer,
+      bindMiddleware([thunkMiddleware])
+    ); // Creating the store again
 
-  store.subscribe(() => {
-    stateLoader.saveState(store.getState());
-  });
+    store.__persistor = persistStore(store); // This creates a persistor object & push that persisted object to .__persistor, so that we can avail the persistability feature
 
-  return store;
+    return store;
+  }
 };
+
+// Export the wrapper & wrap the pages/_app.js with this wrapper only
+
+export const wrapper = createWrapper(makeStore);
