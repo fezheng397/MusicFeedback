@@ -4,89 +4,41 @@ import { rem } from 'polished';
 function createColorPalette(
   dark: string,
   base: string,
-  light70: string,
-  light45: string,
-  light30: string,
-  light10: string
+  light72: string,
+  light56: string,
+  light24: string,
+  light08: string
 ) {
   return {
     dark,
     base,
-    light70,
-    light45,
-    light30,
-    light10,
+    light72,
+    light56,
+    light24,
+    light08,
   };
 }
 
 const color: Color = {
   black: {
-    dark: '#252525',
-    base: '#161226',
+    dark: '#131B2A',
+    base: '#25292F',
   },
   gray: createColorPalette(
-    '#484554',
-    '#787878',
-    '#A1A1A1',
-    '#C2C2C2',
-    '#D7D7D7',
-    '#F7F7F7'
+    '#4B4E53',
+    '#74767A',
+    '#9B9C9F',
+    '#B1B2B5',
+    '#DEDEDF',
+    '#F2F2F2'
   ),
   brand: createColorPalette(
-    '#382E85',
-    '#6D64E7',
-    '#776BCD',
-    '#958CD8',
-    '#C6C1EA',
-    '#F0F0FD'
-  ),
-  violet: createColorPalette(
-    '#382E85',
-    '#6D64E7',
-    '#776BCD',
-    '#958CD8',
-    '#C6C1EA',
-    '#F0F0FD'
-  ),
-  blue: createColorPalette(
-    '#2F64A7',
-    '#46B4FA',
-    '#7ECBFC',
-    '#ACDDFD',
-    '#C8E9FE',
-    '#EDF7FF'
-  ),
-  green: createColorPalette(
-    '#11866B',
-    '#19C9A1',
-    '#5ED9BD',
-    '#98E7D5',
-    '#BAEFE3',
-    '#E8FAF6'
-  ),
-  salmon: createColorPalette(
-    '#BE4655',
-    '#FF7587',
-    '#FF9EAB',
-    '#FFC1C9',
-    '#FFD6DB',
-    '#FFF1F3'
-  ),
-  orange: createColorPalette(
-    '#DC5240',
-    '#FF9070',
-    '#FFB19B',
-    '#FFCDBF',
-    '#FFDED4',
-    '#FFF4F1'
-  ),
-  gold: createColorPalette(
-    '#C8833E',
-    '#FFC45D',
-    '#FFD68E',
-    '#FFE4B6',
-    '#FFEDCE',
-    '#FFF9EF'
+    '#0A3895',
+    '#105EFA',
+    '#538BFB',
+    '#79A5FC',
+    '#C6D8FE',
+    '#ECF2FF'
   ),
   white: '#FFFFFF',
   opacity: {
@@ -149,15 +101,15 @@ const transition = {
 export const theme = {
   background: {
     primary: color.white,
-    secondary: color.gray.light10,
-    tertiary: color.gray.light30,
+    secondary: color.gray.light08,
+    tertiary: color.gray.light24,
     alt: {
       primary: color.black.base,
       secondary: color.gray.dark,
       tertiary: color.gray.base,
     },
     brand: color.brand.base,
-    highlight: color.brand.light10,
+    highlight: color.brand.light08,
     overlay: color.opacity.black64,
   },
   border: {
@@ -167,7 +119,7 @@ export const theme = {
   color: color,
   divider: { primary: color.opacity.black08 },
   focus: {
-    brand: color.brand.light70,
+    brand: color.brand.light72,
   },
   font: font,
   shadow: shadows,
@@ -180,11 +132,9 @@ export const theme = {
     active: color.brand.base,
     alt: {
       primary: color.white,
-      secondary: color.gray.light10,
-      tertiary: color.gray.light30,
+      secondary: color.gray.light08,
+      tertiary: color.gray.light24,
     },
-    error: color.salmon.base,
-    success: color.green.base,
   },
   transition: transition,
 };

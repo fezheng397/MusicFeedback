@@ -105,10 +105,10 @@ const IconContainer = styled.div<StyledButtonProps>`
   display: flex;
   align-items: center;
   height: 100%;
-  ${({ size }) =>
+  ${({ size, theme }) =>
     size !== 'icon' &&
     css`
-      margin-right: ${rem(12)};
+      margin-right: ${theme.spacing.spacing3};
     `}
 `;
 

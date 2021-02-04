@@ -4,9 +4,8 @@ import 'styles/fonts/fonts.css';
 import { S3ContextProvider } from 's3/context/S3Context';
 import { ThemeProvider } from 'styled-components';
 import { theme } from 'constants/theme';
-import { StateLoader } from 'redux/store/stateLoader';
 import { GlobalState } from 'redux/types/store';
-import { Provider, useStore } from 'react-redux';
+import { useStore } from 'react-redux';
 import { wrapper } from 'redux/store';
 import { PersistGate } from 'redux-persist/integration/react';
 

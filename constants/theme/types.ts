@@ -17,10 +17,10 @@ type Alt = {
 type ColorPalette = {
   dark: string;
   base: string;
-  light70: string;
-  light45: string;
-  light30: string;
-  light10: string;
+  light72: string;
+  light56: string;
+  light24: string;
+  light08: string;
 };
 
 type BlackPalette = {
@@ -39,12 +39,6 @@ export type Color = {
   black: BlackPalette;
   gray: ColorPalette;
   brand: ColorPalette;
-  violet: ColorPalette;
-  blue: ColorPalette;
-  green: ColorPalette;
-  salmon: ColorPalette;
-  orange: ColorPalette;
-  gold: ColorPalette;
   white: string;
   opacity: OpacityPalette;
 };

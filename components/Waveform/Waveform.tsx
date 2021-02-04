@@ -4,9 +4,10 @@ import { PlayButton } from 'components/Player';
 
 type Props = {
   audioUrl?: string;
+  height?: number;
 };
 
-const Waveform: React.FC<Props> = ({ audioUrl }) => {
+const Waveform: React.FC<Props> = ({ audioUrl, height = 120 }) => {
   const [wavesurfer, setWavesurfer] = useState(undefined);
 
   useEffect(() => {
@@ -26,14 +27,14 @@ const Waveform: React.FC<Props> = ({ audioUrl }) => {
       if (!wavesurfer) {
         const wavesurferInstance = WaveSurfer.create({
           container: document.querySelector('#waveform'),
-          waveColor: '#C2BFE6',
+          waveColor: 'currentColor',
           progressColor: '#4353FF',
           cursorColor: '#4353FF',
           barWidth: 3,
           barRadius: 3,
           cursorWidth: 1,
           scrollParent: false,
-          height: 120,
+          height,
           barGap: 3,
           plugins: [
             CursorPlugin.create({
@@ -82,6 +83,8 @@ const WaveformContainer = styled.div`
   position: relative;
   width: 100%;
   height: 100%;
+  padding: 32px;
+  color: ${({ theme }) => theme.color.brand.base};
 `;
 
 const ControlBar = styled.div`
