@@ -1,6 +1,7 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { PlayButton } from 'components/Player';
+import { theme } from 'constants/theme';
 
 type Props = {
   audioUrl?: string;
@@ -27,9 +28,9 @@ const Waveform: React.FC<Props> = ({ audioUrl, height = 120 }) => {
       if (!wavesurfer) {
         const wavesurferInstance = WaveSurfer.create({
           container: document.querySelector('#waveform'),
-          waveColor: 'currentColor',
-          progressColor: '#4353FF',
-          cursorColor: '#4353FF',
+          waveColor: theme.color.brand.light24,
+          progressColor: theme.color.brand.base,
+          cursorColor: theme.color.brand.base,
           barWidth: 3,
           barRadius: 3,
           cursorWidth: 1,
@@ -84,7 +85,7 @@ const WaveformContainer = styled.div`
   width: 100%;
   height: 100%;
   padding: 32px;
-  color: ${({ theme }) => theme.color.brand.base};
+  color: ${({ theme }) => theme.color.brand.light24};
 `;
 
 const ControlBar = styled.div`
