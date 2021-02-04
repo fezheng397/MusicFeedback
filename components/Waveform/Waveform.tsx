@@ -45,7 +45,7 @@ const Waveform: React.FC<Props> = ({ audioUrl, height = 120 }) => {
                 'background-color': '#000',
                 color: '#fff',
                 padding: '2px',
-                'font-size': '10px',
+                'font-size': '14px',
               },
             }),
           ],
@@ -84,8 +84,8 @@ const WaveformContainer = styled.div`
   position: relative;
   width: 100%;
   height: 100%;
-  padding: 32px;
-  color: ${({ theme }) => theme.color.brand.light24};
+  box-sizing: border-box;
+  padding: ${({ theme }) => theme.spacing.layout4} 0;
 `;
 
 const ControlBar = styled.div`

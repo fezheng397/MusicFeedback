@@ -46,7 +46,7 @@ export const primaryButtonTheme = createButtonTheme({
   color: theme.text.alt.primary,
   backgroundColor: theme.background.brand,
   hoverBackgroundColor: theme.color.brand.dark,
-  focusOutlineColor: theme.color.brand.light30,
+  focusOutlineColor: theme.color.brand.light24,
 });
 
 export const secondaryButtonTheme = createButtonTheme({

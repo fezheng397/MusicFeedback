@@ -8,6 +8,6 @@ export const IconButton = styled(Button)`
 
   :hover {
     color: ${({ theme }) => theme.text.active};
-    background: ${({ theme }) => theme.color.brand.light10};
+    background: ${({ theme }) => theme.color.brand.light08};
   }
 `;
