@@ -26,13 +26,12 @@ function createButtonTheme({
   return css`
     color: ${color};
     background: ${backgroundColor};
-    ${outlineColor && `box-shadow: 0px 0px 0px ${rem(2)} ${outlineColor};`}
+    ${outlineColor && `border: ${rem(2)} solid ${outlineColor};`}
 
     :hover {
       ${hoverColor && `color: ${hoverColor};`}
       ${hoverBackgroundColor && `background: ${hoverBackgroundColor};`}
-      ${hoverOutlineColor &&
-      `box-shadow: 0px 0px 0px ${rem(2)} ${hoverOutlineColor};`}
+      ${hoverOutlineColor && `border: ${rem(2)} solid ${hoverOutlineColor};`}
     }
 
     :focus {

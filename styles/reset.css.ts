@@ -44,6 +44,18 @@ ${({ theme }) => css`
     }
   }
 
+  textarea {
+    border: none;
+    overflow: auto;
+    outline: none;
+
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+
+    resize: none; /*remove the resize handle on the bottom right*/
+  }
+
   a {
     text-decoration: none;
     color: ${theme.text.active};

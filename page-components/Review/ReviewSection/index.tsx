@@ -1,7 +1,3 @@
-import React from 'react';
-
-const ReviewSection = () => {
-  return <div></div>;
-};
-
-export default ReviewSection;
+export { default as GeneralFeedback } from './GeneralFeedback';
+export { default as ReviewSection } from './ReviewSection';
+export { default as TimestampFeedback } from './TimestampFeedback';

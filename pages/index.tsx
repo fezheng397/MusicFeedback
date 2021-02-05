@@ -12,6 +12,9 @@ export default function Home({}) {
       <Button icon={<Filter size={24} />} size='lg' buttonTheme='secondary'>
         Filter
       </Button>
+      <Button icon={<Filter size={24} />} size='lg'>
+        Filter
+      </Button>
       <Play size={24} />
     </Container>
   );
