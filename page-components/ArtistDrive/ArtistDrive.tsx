@@ -38,12 +38,6 @@ const SongsWrapper = styled.div`
     align-content: center;
 `
 
-// const SongsWrapper = styled.div`
-//     display: flex;
-//     flex-direction: row;
-//     flex-wrap: wrap;
-// `
-
 const OuterContainer = styled(Container)`
     display: flex;
     flex-direction: column;
