@@ -1,20 +1,23 @@
 import React from 'react';
 import { Container } from 'components/Container';
-import { GeneralFeedback, TimestampFeedback } from '.';
+import { GeneralFeedback, StructuredFeedback, TimestampFeedback } from '.';
 import { Section } from 'components/Layout';
 import { mockGeneralFeedback } from 'mocks/api/Feedback';
 
-const CreateReviewSection = () => {
+const ViewReviewSection = () => {
   return (
-    <Container size='lg'>
+    <Container size="lg">
       <Section>
-        <TimestampFeedback mode='view' />
+        <TimestampFeedback mode="view" />
       </Section>
       <Section>
         <GeneralFeedback content={mockGeneralFeedback.content} />
+      </Section>
+      <Section>
+        <StructuredFeedback />
       </Section>
     </Container>
   );
 };
 
-export default CreateReviewSection;
+export default ViewReviewSection;

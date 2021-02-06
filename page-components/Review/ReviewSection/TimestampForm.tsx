@@ -8,7 +8,6 @@ import { Textarea } from 'components/Textarea';
 import { rem } from 'polished';
 
 const TimestampForm = () => {
-  const a = '';
   return (
     <Wrapper>
       <Label2 marginBottom="layout1">Add or edit a comment:</Label2>
