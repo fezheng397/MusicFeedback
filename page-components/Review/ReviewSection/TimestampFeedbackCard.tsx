@@ -5,13 +5,15 @@ import { Play } from 'components/Icons';
 import { rem } from 'polished';
 
 type FeedbackCardProps = {
-  description?: string;
-  timeRange?: string;
+  content: string;
+  timeStart: number;
+  timeEnd: number;
 };
 
 const FeedbackCard: React.FC<FeedbackCardProps> = ({
-  description,
-  timeRange,
+  content,
+  timeStart,
+  timeEnd,
 }) => {
   return (
     <Wrapper>
@@ -20,9 +22,9 @@ const FeedbackCard: React.FC<FeedbackCardProps> = ({
       </PlayButton>
       <FeedbackSection>
         <Label2 color='currentColor' marginBottom='spacing2'>
-          Time: {timeRange}
+          Time: {timeStart}-{timeEnd}
         </Label2>
-        <Paragraph2 color='currentColor'>{description}</Paragraph2>
+        <Paragraph2 color='currentColor'>{content}</Paragraph2>
       </FeedbackSection>
     </Wrapper>
   );

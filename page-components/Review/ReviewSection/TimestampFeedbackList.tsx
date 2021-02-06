@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { FeedbackCard } from './';
+import { TimestampFeedbackCard } from '.';
 import { Feedback } from 'types/16bars';
 
 type FeedbackListProps = {
@@ -12,9 +12,10 @@ const FeedbackList: React.FC<FeedbackListProps> = ({ timestampFeedback }) => {
     <FeedbackListWrapper>
       {timestampFeedback.map((timestampFeedback) => (
         <FeedbackCardWrapper>
-          <FeedbackCard
-            description={timestampFeedback.content}
-            timeRange={`${timestampFeedback.time_start}-${timestampFeedback.time_end}`}
+          <TimestampFeedbackCard
+            content={timestampFeedback.content}
+            timeStart={timestampFeedback.time_start}
+            timeEnd={timestampFeedback.time_end}
           />
         </FeedbackCardWrapper>
       ))}
