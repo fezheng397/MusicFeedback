@@ -1,29 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Header3 } from 'components/Typography';
-import { Textarea } from 'components/Textarea';
-import { FeedbackCard, TimestampForm } from './';
+import { FeedbackList, TimestampForm } from './';
 import { mediaQueryMixin } from 'constants/breakpoints';
+import { mockTimestampFeedback } from 'mocks/api/Feedback';
 
 type TimestampFeedbackProps = {};
-
-const mockFeedbackData = [
-  {
-    description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent aliquet pharetra justo at scelerisque.',
-    timeRange: '1:45-2:30',
-  },
-  {
-    description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent aliquet pharetra justo at scelerisque. Nunc auctor elit tincidunt, rhoncus dui eget, aliquet nibh. Nulla neque est, pulvinar ut leo vitae, malesuada tincidunt nulla. Sed in quam a purus lacinia luctus. Phasellus non rutrum eros.',
-    timeRange: '1:45-2:30',
-  },
-  {
-    description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent aliquet pharetra justo at scelerisque. Nunc auctor elit tincidunt, rhoncus dui eget, aliquet nibh. Nulla neque est, pulvinar ut leo vitae, malesuada tincidunt nulla. Sed in quam a purus lacinia luctus. Phasellus non rutrum eros.',
-    timeRange: '1:45-2:30',
-  },
-];
 
 const TimestampFeedback: React.FC<TimestampFeedbackProps> = ({}) => {
   return (
@@ -31,28 +13,11 @@ const TimestampFeedback: React.FC<TimestampFeedbackProps> = ({}) => {
       <Header3 marginBottom='layout3'>Timestamp feedback</Header3>
       <Wrapper>
         <TimestampForm />
-        <div>
-          {mockFeedbackData.map((data) => (
-            <FeedbackCardWrapper>
-              <FeedbackCard
-                description={data.description}
-                timeRange={data.timeRange}
-              />
-            </FeedbackCardWrapper>
-          ))}
-        </div>
+        <FeedbackList timestampFeedback={mockTimestampFeedback} />
       </Wrapper>
     </div>
   );
 };
-
-const FeedbackCardWrapper = styled.div`
-  margin-bottom: ${({ theme }) => theme.spacing.layout2};
-
-  :last-child {
-    margin-bottom: 0;
-  }
-`;
 
 const Wrapper = styled.div`
   display: grid;
@@ -64,7 +29,5 @@ const Wrapper = styled.div`
     flex-direction: column;
   }
 `;
-
-const FeedbackTextarea = styled(Textarea)``;
 
 export default TimestampFeedback;

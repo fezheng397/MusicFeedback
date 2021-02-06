@@ -14,7 +14,6 @@ const TimestampForm = () => {
       <CommentSpecification>
         <TimeRangeInputs>
           <TimeInput placeholder='Time start...' />
-
           <Label4 marginRight='spacing3' marginLeft='spacing3'>
             to
           </Label4>

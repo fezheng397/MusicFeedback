@@ -1,4 +1,3 @@
-import React from 'react';
 import { useSelector } from 'react-redux';
 import { GlobalState } from 'redux/types/store';
 import { State as AuthState } from 'redux/types/auth';
