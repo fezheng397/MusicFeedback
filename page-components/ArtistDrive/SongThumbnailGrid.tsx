@@ -2,7 +2,11 @@ import React from 'react';
 import styled from 'styled-components';
 import SongThumbnail from './SongThumbnail';
 import { mediaQueryMixin } from 'constants/breakpoints';
-import type { SongThumbnailGridProps } from './types';
+import type { Song } from 'types/model';
+
+export type SongThumbnailGridProps = {
+    songs: Array<Song>,
+}
 
 const SongThumbnailGrid: React.FC<SongThumbnailGridProps> = (props: SongThumbnailGridProps) => {
   return (

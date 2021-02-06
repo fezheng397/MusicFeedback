@@ -3,9 +3,13 @@ import { rem } from 'polished';
 import styled from 'styled-components';
 import { Label3, Label4 } from 'components/Typography';
 import { Button } from 'components/Button';
-import type { SongThumbnailProps } from './types';
+import type { Song } from 'types/model';
+
 import { formatSongLength } from 'utilities/timeUtils';
 
+export type SongThumbnailProps = {
+  song: Song,
+}
 
 const SongThumbnail: React.FC<SongThumbnailProps> = (props: SongThumbnailProps) => {
 
