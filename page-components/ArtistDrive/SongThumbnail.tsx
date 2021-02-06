@@ -1,34 +1,26 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { rem } from 'polished';
 import styled from 'styled-components';
-import { Header6, Paragraph5, Paragraph4 } from 'components/Typography';
-import { Settings } from 'components/Icons';
+import { Label3, Label4 } from 'components/Typography';
 import { Button } from 'components/Button';
-import { Container } from 'components/Container';
 import type { SongThumbnailProps } from './types';
-import { mediaQueryMixin } from 'constants/breakpoints';
+import { formatSongLength } from 'utilities/timeUtils';
 
 
-export const SongThumbnail: React.FC<SongThumbnailProps> = (props: SongThumbnailProps) => {
+const SongThumbnail: React.FC<SongThumbnailProps> = (props: SongThumbnailProps) => {
 
   return (
     <SongThumbnailWrapper
       buttonTheme="unstyled"
       size="link"
     >
-      <SongImage
-        src={'https://joshuaspodek.com/wp-content/uploads/2019/05/music-notes.png'}
-      />
-      <SongInfoWrapper>
-        <Paragraph6>Here We Go Again</Paragraph6> {/* TODO: HANDLE OVERFLOW*/}
-      </SongInfoWrapper>
+      <SongImageBackground />
+      <Label3 marginTop="spacing5" weight="semibold">{props.song?.name || ''}</Label3> {/* TODO: HANDLE OVERFLOW*/}
       <SongTwoSideInfoWrapper>
-        <Paragraph4>3 Reviews</Paragraph4>
-        <Paragraph4>3:47</Paragraph4>
+        <Label4 weight="normal">{props.song?.num_reviews || 'No'} Reviews</Label4>
+        <Label4 weight="normal">{formatSongLength(props.song?.length || 0)}</Label4>
       </SongTwoSideInfoWrapper>
-      <SongInfoWrapper>
-        <Paragraph4>Uploaded on 12/23</Paragraph4>
-      </SongInfoWrapper>
+      <Label4 marginTop="spacing2" color="tertiary" weight="normal">Uploaded on 12/23</Label4> {/* TODO: ADD HELPER AND GET DATE*/}
     </SongThumbnailWrapper>
   );
 };
@@ -37,31 +29,23 @@ const SongThumbnailWrapper = styled(Button)`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  box-shadow: ${({ theme }) => theme.shadow.medium.down};
-  padding-left: 14px;
-  padding-right: 14px;
-  padding-top: 5px;
-  padding-bottom: 5px;
   flex-wrap: wrap;
-  width: 20%;
 `;
 
-const SongImage = styled.img`
-  align-self: center;
-  height: ${rem(180)};
-  width: ${rem(180)};
-`;
-
-const SongInfoWrapper = styled.div`
-  margin-top: 10px;
+const SongImageBackground = styled.div`
+  background: ${({ theme }) => theme.color.brand.light08};
+  border-radius: ${rem(12)};
+  height: ${rem(200)};
+  width: 100%;
 `;
 
 const SongTwoSideInfoWrapper = styled.div`
   width: 100%;
-  margin-top: 10px;
+  margin-top: ${({ theme }) => theme.spacing.spacing2};
   display: flex;
   flex-direction: row;
-  align-items: center;
   justify-content: space-between;
 `;
+
+export default SongThumbnail;
 

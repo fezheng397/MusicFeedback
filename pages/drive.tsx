@@ -1,13 +1,11 @@
 import React from 'react';
-import { Page, Section } from 'components/Layout';
+import { Page } from 'components/Layout';
 import { ArtistDrive } from 'page-components/ArtistDrive';
 
 const ArtistDrivePage = () => {
   return (
     <Page>
-      <Section>
-        <ArtistDrive />
-      </Section>
+      <ArtistDrive />
     </Page>
   );
 };

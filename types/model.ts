@@ -7,6 +7,7 @@ export type Song = {
     length: number,
     description: string,
     file_uri: string,
+    num_reviews: number,
     created_at: any, // TODO: change
     updated_at: any, // TODO: change
 }
