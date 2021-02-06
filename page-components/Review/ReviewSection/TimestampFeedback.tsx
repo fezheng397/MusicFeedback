@@ -28,16 +28,13 @@ const mockFeedbackData = [
 const TimestampFeedback: React.FC<TimestampFeedbackProps> = ({}) => {
   return (
     <div>
-      <Header3 marginBottom='layout3'>Timestamp feedback</Header3>
+      <Header3 marginBottom="layout3">Timestamp feedback</Header3>
       <Wrapper>
         <TimestampForm />
         <div>
           {mockFeedbackData.map((data) => (
             <FeedbackCardWrapper>
-              <FeedbackCard
-                description={data.description}
-                timeRange={data.timeRange}
-              />
+              <FeedbackCard description={data.description} timeRange={data.timeRange} />
             </FeedbackCardWrapper>
           ))}
         </div>
