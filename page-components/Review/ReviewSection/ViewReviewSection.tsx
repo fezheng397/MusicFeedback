@@ -8,7 +8,7 @@ const CreateReviewSection = () => {
   return (
     <Container size='lg'>
       <Section>
-        <TimestampFeedback mode='create' />
+        <TimestampFeedback mode='view' />
       </Section>
       <Section>
         <GeneralFeedback content={mockGeneralFeedback.content} />

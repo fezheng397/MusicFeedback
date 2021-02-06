@@ -4,13 +4,13 @@ import { TimestampFeedbackCard } from '.';
 import { Feedback } from 'types/16bars';
 
 type FeedbackListProps = {
-  timestampFeedback?: Feedback[];
+  timestampFeedbacks?: Feedback[];
 };
 
-const FeedbackList: React.FC<FeedbackListProps> = ({ timestampFeedback }) => {
+const FeedbackList: React.FC<FeedbackListProps> = ({ timestampFeedbacks }) => {
   return (
     <FeedbackListWrapper>
-      {timestampFeedback.map((timestampFeedback) => (
+      {timestampFeedbacks.map((timestampFeedback) => (
         <FeedbackCardWrapper>
           <TimestampFeedbackCard
             content={timestampFeedback.content}
