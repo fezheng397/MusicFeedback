@@ -1,11 +1,13 @@
+import React, { useEffect } from 'react';
 import GlobalStyleReset from 'styles/reset.css';
 import 'styles/fonts/fonts.css';
 import { S3ContextProvider } from 's3/context/S3Context';
 import { ThemeProvider } from 'styled-components';
 import { theme } from 'constants/theme';
-// import { Provider } from 'react-redux';
-// import { initStore } from 'redux/store';
-// import { StateLoader } from 'redux/store/stateLoader';
+import { GlobalState } from 'redux/types/store';
+import { useStore } from 'react-redux';
+import { wrapper } from 'redux/store';
+import { PersistGate } from 'redux-persist/integration/react';
 
 declare global {
   interface Window {
@@ -13,23 +15,19 @@ declare global {
   }
 }
 
-// const stateLoader = new StateLoader();
-
-// export const store = initStore(
-//   window.__SERVER_STATE__ || stateLoader.loadState()
-// );
-
 function MyApp({ Component, pageProps }) {
+  const store = useStore<GlobalState>();
+
   return (
-    // <Provider store={store}>
+    <PersistGate persistor={store.__persistor} loading={<div>Loading</div>}>
       <ThemeProvider theme={theme}>
         <GlobalStyleReset />
         <S3ContextProvider>
           <Component {...pageProps} />
         </S3ContextProvider>
       </ThemeProvider>
-    // </Provider>
+    </PersistGate>
   );
 }
 
-export default MyApp;
+export default wrapper.withRedux(MyApp);

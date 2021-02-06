@@ -1,12 +1,14 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { PlayButton } from 'components/Player';
+import { theme } from 'constants/theme';
 
 type Props = {
   audioUrl?: string;
+  height?: number;
 };
 
-const Waveform: React.FC<Props> = ({ audioUrl }) => {
+const Waveform: React.FC<Props> = ({ audioUrl, height = 120 }) => {
   const [wavesurfer, setWavesurfer] = useState(undefined);
 
   useEffect(() => {
@@ -26,14 +28,14 @@ const Waveform: React.FC<Props> = ({ audioUrl }) => {
       if (!wavesurfer) {
         const wavesurferInstance = WaveSurfer.create({
           container: document.querySelector('#waveform'),
-          waveColor: '#C2BFE6',
-          progressColor: '#4353FF',
-          cursorColor: '#4353FF',
+          waveColor: theme.color.brand.light24,
+          progressColor: theme.color.brand.base,
+          cursorColor: theme.color.brand.base,
           barWidth: 3,
           barRadius: 3,
           cursorWidth: 1,
           scrollParent: false,
-          height: 120,
+          height,
           barGap: 3,
           plugins: [
             CursorPlugin.create({
@@ -43,7 +45,7 @@ const Waveform: React.FC<Props> = ({ audioUrl }) => {
                 'background-color': '#000',
                 color: '#fff',
                 padding: '2px',
-                'font-size': '10px',
+                'font-size': '14px',
               },
             }),
           ],
@@ -82,6 +84,8 @@ const WaveformContainer = styled.div`
   position: relative;
   width: 100%;
   height: 100%;
+  box-sizing: border-box;
+  padding: ${({ theme }) => theme.spacing.layout4} 0;
 `;
 
 const ControlBar = styled.div`

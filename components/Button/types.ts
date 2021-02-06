@@ -4,4 +4,4 @@ export type ButtonTheme =
   | 'tertiary'
   | 'link'
   | 'unstyled';
-export type ButtonSize = 'sm' | 'md' | 'lg' | 'link' | 'icon';
+export type ButtonSize = 'sm' | 'md' | 'lg' | 'link' | 'icon' | 'pill';

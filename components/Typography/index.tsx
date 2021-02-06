@@ -11,6 +11,8 @@ export type ExtendedTypographyProps = TypographyInterfaceProps & {
 const headerFont = 'secondary';
 const headerWeight = 'bold';
 
+const labelWeight = 'medium';
+
 const regularFont = 'primary';
 const regularWeight = 'normal';
 
@@ -105,36 +107,37 @@ const typographySettings: { [name: string]: TypographySetting } = {
     as: 'p',
     color: 'primary',
     font: headerFont,
-    letterSpacing: 0.22,
+    letterSpacing: 0.34,
     lineHeight: 26,
     size: 20,
-    weight: regularWeight,
+    weight: labelWeight,
   },
   label2: {
     as: 'p',
     color: 'primary',
     font: regularFont,
-    letterSpacing: 0.24,
+    letterSpacing: 0.34,
     lineHeight: 24,
     size: 18,
-    weight: regularWeight,
+    weight: labelWeight,
   },
   label3: {
     as: 'p',
     color: 'primary',
     font: regularFont,
-    letterSpacing: 0.28,
+    letterSpacing: 0.32,
     lineHeight: 22,
     size: 17,
-    weight: regularWeight,
+    weight: labelWeight,
   },
   label4: {
     as: 'p',
     color: 'primary',
     font: regularFont,
+    letterSpacing: 0.3,
     lineHeight: 20,
     size: 16,
-    weight: regularWeight,
+    weight: labelWeight,
   },
 };
 

@@ -11,6 +11,7 @@ export {default as Close} from './Close';
 export {default as Computer} from './Computer';
 export {default as Copy} from './Copy';
 export {default as Device} from './Device';
+export {default as Filter} from './Filter';
 export {default as HeartFilled} from './HeartFilled';
 export {default as Heart} from './Heart';
 export {default as Info} from './Info';

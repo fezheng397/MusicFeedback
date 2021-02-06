@@ -50,7 +50,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
     }
     return (
       <InputWrapper className={className}>
-        <InputIconWrapper>{icon}</InputIconWrapper>
+        {icon && <InputIconWrapper>{icon}</InputIconWrapper>}
         <StyledInput
           disabled={disabled}
           onChange={handleChange}
@@ -60,9 +60,15 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
           value={value}
           {...props}
         />
-        <InputClearButton onClick={onClear} size='icon' buttonTheme='unstyled'>
-          <Close size={16} />
-        </InputClearButton>
+        {onClear && value && (
+          <InputClearButton
+            onClick={onClear}
+            size='icon'
+            buttonTheme='unstyled'
+          >
+            <Close size={16} />
+          </InputClearButton>
+        )}
       </InputWrapper>
     );
   }

@@ -6,12 +6,12 @@ export type MediaQuerySize = 'xl' | 'lg' | 'md' | 'sm' | 'xs' | 'xxs';
 
 export const Breakpoints = {
   // Breakpoints
-  xl: '1680px',
-  lg: '1280px',
-  md: '980px',
-  sm: '736px',
-  xs: '480px',
-  xxs: '360px',
+  xxl: '1360px',
+  xl: '1200px',
+  lg: '992px',
+  md: '768px',
+  sm: '460px',
+  xs: '360px',
 };
 
 export const query = (type: MediaQueryType, size: MediaQuerySize) => {

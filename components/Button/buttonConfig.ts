@@ -1,4 +1,10 @@
-import { css, FlattenSimpleInterpolation } from 'styled-components';
+import {
+  css,
+  DefaultTheme,
+  FlattenInterpolation,
+  FlattenSimpleInterpolation,
+  ThemeProps,
+} from 'styled-components';
 import { theme } from 'constants/theme';
 import { ButtonSize, ButtonTheme } from './types';
 import { rem } from 'polished';
@@ -26,13 +32,12 @@ function createButtonTheme({
   return css`
     color: ${color};
     background: ${backgroundColor};
-    ${outlineColor && `box-shadow: 0px 0px 0px ${rem(2)} ${outlineColor};`}
+    ${outlineColor && `border: ${rem(2)} solid ${outlineColor};`}
 
     :hover {
       ${hoverColor && `color: ${hoverColor};`}
       ${hoverBackgroundColor && `background: ${hoverBackgroundColor};`}
-      ${hoverOutlineColor &&
-      `box-shadow: 0px 0px 0px ${rem(2)} ${hoverOutlineColor};`}
+      ${hoverOutlineColor && `border: ${rem(2)} solid ${hoverOutlineColor};`}
     }
 
     :focus {
@@ -46,7 +51,7 @@ export const primaryButtonTheme = createButtonTheme({
   color: theme.text.alt.primary,
   backgroundColor: theme.background.brand,
   hoverBackgroundColor: theme.color.brand.dark,
-  focusOutlineColor: theme.color.brand.light30,
+  focusOutlineColor: theme.color.brand.light24,
 });
 
 export const secondaryButtonTheme = createButtonTheme({
@@ -86,21 +91,31 @@ export const themeMap: {
   unstyled: unstyledButtonTheme,
 };
 
-const sizeConfig = {
+type SizeConfig = {
+  borderRadius: string;
+  text: FlattenInterpolation<ThemeProps<DefaultTheme>>;
+  height?: string;
+  padding: string;
+};
+
+const sizeConfig: { [key in ButtonSize]: SizeConfig } = {
   sm: {
     borderRadius: rem(8),
     text: label3,
-    padding: `${rem(10)} ${rem(16)}`,
+    height: rem(44),
+    padding: `0 ${rem(16)}`,
   },
   md: {
     borderRadius: rem(8),
     text: label2,
-    padding: `${rem(12)} ${rem(20)}`,
+    height: rem(48),
+    padding: `0 ${rem(20)}`,
   },
   lg: {
     borderRadius: rem(10),
     text: label2,
-    padding: `${rem(14)} ${rem(20)}`,
+    height: rem(52),
+    padding: `0 ${rem(24)}`,
   },
   link: {
     borderRadius: rem(8),
@@ -112,6 +127,12 @@ const sizeConfig = {
     text: label2,
     padding: '0',
   },
+  pill: {
+    borderRadius: rem(500),
+    text: label2,
+    height: rem(52),
+    padding: `0 ${rem(24)}`,
+  },
 };
 
 export function getButtonSizeStyling(size: ButtonSize) {
@@ -120,5 +141,9 @@ export function getButtonSizeStyling(size: ButtonSize) {
     font-weight: 500;
     border-radius: ${sizeConfig[size].borderRadius};
     padding: ${sizeConfig[size].padding};
+    ${sizeConfig[size].height &&
+    css`
+      height: ${sizeConfig[size].height};
+    `}
   `;
 }

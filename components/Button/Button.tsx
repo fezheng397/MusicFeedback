@@ -17,10 +17,10 @@ interface ButtonProps {
   buttonTheme?: ButtonTheme;
 
   // Anchor props
+  externalLink?: boolean;
   href?: string;
   rel?: string;
   target?: string;
-  to?: string;
 }
 
 const Button = React.forwardRef(
@@ -32,29 +32,28 @@ const Button = React.forwardRef(
       className,
       href,
       icon,
+      externalLink,
       onClick,
       size = 'md',
       buttonTheme = 'primary',
-      to,
       ...props
     }: ButtonProps,
     ref
   ) => {
     let Component = as;
-    if (!as && (href || to)) {
-      Component = href ? 'a' : Link;
+    if (!as && href) {
+      Component = 'a';
     }
-    return (
+
+    const ButtonComponent = () => (
       <StyledButton
         align={align}
         as={Component}
         buttonTheme={buttonTheme}
         className={className}
-        href={href}
         onClick={onClick}
         size={size}
         ref={ref}
-        to={to}
         {...props}
       >
         {icon && (
@@ -65,6 +64,16 @@ const Button = React.forwardRef(
         {children}
       </StyledButton>
     );
+
+    if (href) {
+      return (
+        <Link href={href} passHref={externalLink}>
+          {ButtonComponent()}
+        </Link>
+      );
+    }
+
+    return ButtonComponent();
   }
 );
 
@@ -105,10 +114,10 @@ const IconContainer = styled.div<StyledButtonProps>`
   display: flex;
   align-items: center;
   height: 100%;
-  ${({ size }) =>
+  ${({ size, theme }) =>
     size !== 'icon' &&
     css`
-      margin-right: ${rem(12)};
+      margin-right: ${theme.spacing.spacing3};
     `}
 `;
 

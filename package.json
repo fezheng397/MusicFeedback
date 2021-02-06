@@ -9,18 +9,23 @@
     "generate-icons": "node components/Icons/generate-icons.js"
   },
   "dependencies": {
+    "@popperjs/core": "^2.6.0",
     "@types/react-modal": "^3.10.6",
     "@types/react-redux": "^7.1.16",
     "@types/styled-components": "^5.1.7",
     "aws-sdk": "^2.834.0",
     "next": "10.0.6",
+    "next-redux-wrapper": "^6.0.2",
     "polished": "^4.1.0",
     "prettier": "^2.2.1",
     "react": "17.0.1",
     "react-dom": "17.0.1",
     "react-modal": "^3.12.1",
+    "react-popper": "^2.2.4",
     "react-redux": "^7.2.2",
     "redux": "^4.0.5",
+    "redux-devtools-extension": "^2.13.8",
+    "redux-persist": "^6.0.0",
     "redux-thunk": "^2.3.0",
     "styled-components": "^5.2.1",
     "wavesurfer.js": "^4.4.0"

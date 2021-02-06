@@ -13,6 +13,7 @@ export {
 	Computer,
 	Copy,
 	Device,
+	Filter,
 	HeartFilled,
 	Heart,
 	Info,
