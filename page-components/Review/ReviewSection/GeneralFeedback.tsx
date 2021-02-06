@@ -8,7 +8,7 @@ type GeneralFeedbackProps = {
 const GeneralFeedback: React.FC<GeneralFeedbackProps> = ({ content }) => {
   return (
     <div>
-      <Header3 marginBottom='layout3'>General feedback</Header3>
+      <Header3 marginBottom="layout3">General feedback</Header3>
       <Paragraph2>{content}</Paragraph2>
     </div>
   );

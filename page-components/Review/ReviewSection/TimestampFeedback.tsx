@@ -1,16 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Header3 } from 'components/Typography';
-import {
-  TimestampFeedbackDetails,
-  TimestampFeedbackList,
-  TimestampForm,
-} from './';
+import { TimestampFeedbackDetails, TimestampFeedbackList, TimestampForm } from './';
 import { mediaQueryMixin } from 'constants/breakpoints';
-import {
-  mockTimestampFeedback,
-  mockTimestampFeedbacks,
-} from 'mocks/api/Feedback';
+import { mockTimestampFeedback, mockTimestampFeedbacks } from 'mocks/api/Feedback';
 
 type Mode = 'create' | 'view';
 
@@ -21,7 +14,7 @@ type TimestampFeedbackProps = {
 const TimestampFeedback: React.FC<TimestampFeedbackProps> = ({ mode }) => {
   return (
     <div>
-      <Header3 marginBottom='layout3'>Timestamp feedback</Header3>
+      <Header3 marginBottom="layout3">Timestamp feedback</Header3>
       <Wrapper>
         {mode === 'create' && <TimestampForm />}
         <TimestampFeedbackList timestampFeedbacks={mockTimestampFeedbacks} />

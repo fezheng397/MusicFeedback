@@ -10,21 +10,17 @@ type FeedbackCardProps = {
   timeEnd: number;
 };
 
-const FeedbackCard: React.FC<FeedbackCardProps> = ({
-  content,
-  timeStart,
-  timeEnd,
-}) => {
+const FeedbackCard: React.FC<FeedbackCardProps> = ({ content, timeStart, timeEnd }) => {
   return (
     <Wrapper>
       <PlayButton>
         <Play size={20} />
       </PlayButton>
       <FeedbackSection>
-        <Label2 color='currentColor' marginBottom='spacing2'>
+        <Label2 color="currentColor" marginBottom="spacing2">
           Time: {timeStart}-{timeEnd}
         </Label2>
-        <Paragraph2 color='currentColor'>{content}</Paragraph2>
+        <Paragraph2 color="currentColor">{content}</Paragraph2>
       </FeedbackSection>
     </Wrapper>
   );

@@ -211,7 +211,7 @@ export const Paragraph2 = createTypographyComponent('paragraph2');
 
 export const Paragraph3 = createTypographyComponent('paragraph3');
 
-export const Paragraph4 = createTypographyComponent('label4');
+export const Paragraph4 = createTypographyComponent('paragraph4');
 
 export const Label1 = createTypographyComponent('label1');
 

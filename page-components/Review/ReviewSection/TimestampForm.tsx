@@ -8,28 +8,25 @@ import { Textarea } from 'components/Textarea';
 import { rem } from 'polished';
 
 const TimestampForm = () => {
+  const a = '';
   return (
     <Wrapper>
-      <Label2 marginBottom='layout1'>Add or edit a comment:</Label2>
+      <Label2 marginBottom="layout1">Add or edit a comment:</Label2>
       <CommentSpecification>
         <TimeRangeInputs>
-          <TimeInput placeholder='Time start...' />
-          <Label4 marginRight='spacing3' marginLeft='spacing3'>
+          <TimeInput placeholder="Time start..." />
+          <Label4 marginRight="spacing3" marginLeft="spacing3">
             to
           </Label4>
-          <TimeInput placeholder='Time end...' />
+          <TimeInput placeholder="Time end..." />
         </TimeRangeInputs>
         <SaveButtonWrapper>
-          <Button
-            buttonTheme='secondary'
-            size='lg'
-            icon={<Settings size={24} />}
-          >
+          <Button buttonTheme="secondary" size="lg" icon={<Settings size={24} />}>
             Save
           </Button>
         </SaveButtonWrapper>
       </CommentSpecification>
-      <FeedbackTextarea placeholder='Feedback for the track...' />
+      <FeedbackTextarea placeholder="Feedback for the track..." />
     </Wrapper>
   );
 };

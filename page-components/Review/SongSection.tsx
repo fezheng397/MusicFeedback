@@ -18,21 +18,19 @@ const SongSection = () => {
   }, []);
 
   return (
-    <Container size='lg'>
+    <Container size="lg">
       <SongTitleSection>
-        <Header2 marginRight='layout5'>Song name</Header2>
-        <Button buttonTheme='secondary' size='lg' icon={<Settings size={24} />}>
+        <Header2 marginRight="layout5">Song name</Header2>
+        <Button buttonTheme="secondary" size="lg" icon={<Settings size={24} />}>
           Edit
         </Button>
       </SongTitleSection>
-      <Paragraph2 marginBottom='layout5'>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent
-        aliquet pharetra justo at scelerisque. Nunc auctor elit tincidunt,
-        rhoncus dui eget, aliquet nibh. Nulla neque est, pulvinar ut leo vitae,
-        malesuada tincidunt nulla. Sed in quam a purus lacinia luctus. Phasellus
-        non rutrum eros. Aenean mi ipsum, efficitur et semper non, accumsan quis
-        leo. Etiam ut est eu diam consequat sodales. Cras lobortis consequat sem
-        non varius.
+      <Paragraph2 marginBottom="layout5">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent aliquet pharetra justo at
+        scelerisque. Nunc auctor elit tincidunt, rhoncus dui eget, aliquet nibh. Nulla neque est,
+        pulvinar ut leo vitae, malesuada tincidunt nulla. Sed in quam a purus lacinia luctus.
+        Phasellus non rutrum eros. Aenean mi ipsum, efficitur et semper non, accumsan quis leo.
+        Etiam ut est eu diam consequat sodales. Cras lobortis consequat sem non varius.
       </Paragraph2>
       <Waveform audioUrl={audioUrl} />
     </Container>
