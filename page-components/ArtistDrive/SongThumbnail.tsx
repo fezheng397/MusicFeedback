@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { rem } from 'polished';
 import styled from 'styled-components';
-import { Header6, Paragraph2, Paragraph4 } from 'components/Typography';
+import { Header6, Paragraph5, Paragraph4 } from 'components/Typography';
 import { Settings } from 'components/Icons';
 import { Button } from 'components/Button';
 import { Container } from 'components/Container';
@@ -20,7 +20,7 @@ export const SongThumbnail: React.FC<SongThumbnailProps> = (props: SongThumbnail
         src={'https://joshuaspodek.com/wp-content/uploads/2019/05/music-notes.png'}
       />
       <SongInfoWrapper>
-        <Header6>Here We Go Again</Header6>
+        <Paragraph6>Here We Go Again</Paragraph6> {/* TODO: HANDLE OVERFLOW*/}
       </SongInfoWrapper>
       <SongTwoSideInfoWrapper>
         <Paragraph4>3 Reviews</Paragraph4>
@@ -42,6 +42,8 @@ const SongThumbnailWrapper = styled(Button)`
   padding-right: 14px;
   padding-top: 5px;
   padding-bottom: 5px;
+  flex-wrap: wrap;
+  width: 20%;
 `;
 
 const SongImage = styled.img`
