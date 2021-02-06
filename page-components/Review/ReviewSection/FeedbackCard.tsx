@@ -9,20 +9,17 @@ type FeedbackCardProps = {
   timeRange?: string;
 };
 
-const FeedbackCard: React.FC<FeedbackCardProps> = ({
-  description,
-  timeRange,
-}) => {
+const FeedbackCard: React.FC<FeedbackCardProps> = ({ description, timeRange }) => {
   return (
     <Wrapper>
       <PlayButton>
         <Play size={20} />
       </PlayButton>
       <FeedbackSection>
-        <Label2 color='currentColor' marginBottom='spacing2'>
+        <Label2 color="currentColor" marginBottom="spacing2">
           Time: {timeRange}
         </Label2>
-        <Paragraph2 color='currentColor'>{description}</Paragraph2>
+        <Paragraph2 color="currentColor">{description}</Paragraph2>
       </FeedbackSection>
     </Wrapper>
   );
