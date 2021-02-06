@@ -22,23 +22,14 @@ const Textarea: React.FC<TextareaProps> = ({
   }
 
   return (
-    <TextareaWrapper>
-      <MainTextarea
-        className={className}
-        onChange={handleChange}
-        placeholder={placeholder}
-        value={value}
-      />
-    </TextareaWrapper>
+    <MainTextarea
+      className={className}
+      onChange={handleChange}
+      placeholder={placeholder}
+      value={value}
+    />
   );
 };
-
-const TextareaWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  box-sizing: border-box;
-`;
 
 const MainTextarea = styled.textarea`
   ${({ theme }) => css`
@@ -50,6 +41,7 @@ const MainTextarea = styled.textarea`
     border-radius: ${rem(10)};
     box-sizing: border-box;
     display: flex;
+    height: 100%;
     align-items: center;
     color: ${theme.text.primary};
     transition: ${theme.transition.average};

@@ -50,9 +50,12 @@ const FeedbackSection = styled.div`
 `;
 
 const PlayButton = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
   border-radius: 50%;
   border: 2px solid ${({ theme }) => theme.text.primary};
-  padding: ${({ theme }) => theme.spacing.spacing3};
+  padding: ${({ theme }) => theme.spacing.spacing2};
 `;
 
 export default FeedbackCard;

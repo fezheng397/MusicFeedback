@@ -1,12 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Header3, Label2, Label4, Paragraph2 } from 'components/Typography';
-import { Input } from 'components/Input';
-import { Button } from 'components/Button';
-import { Settings } from 'components/Icons';
+import { Header3 } from 'components/Typography';
 import { Textarea } from 'components/Textarea';
-import { rem } from 'polished';
-import FeedbackCard from './FeedbackCard';
+import { FeedbackCard, TimestampForm } from './';
 import { mediaQueryMixin } from 'constants/breakpoints';
 
 type TimestampFeedbackProps = {};
@@ -34,29 +30,7 @@ const TimestampFeedback: React.FC<TimestampFeedbackProps> = ({}) => {
     <div>
       <Header3 marginBottom='layout3'>Timestamp feedback</Header3>
       <Wrapper>
-        <div>
-          <Label2 marginBottom='layout1'>Add or edit a comment:</Label2>
-          <CommentSpecification>
-            <TimeRangeInputs>
-              <TimeInput placeholder='Time start...' />
-
-              <Label4 marginRight='spacing3' marginLeft='spacing3'>
-                to
-              </Label4>
-              <TimeInput placeholder='Time end...' />
-            </TimeRangeInputs>
-            <SaveButtonWrapper>
-              <Button
-                buttonTheme='secondary'
-                size='lg'
-                icon={<Settings size={24} />}
-              >
-                Save
-              </Button>
-            </SaveButtonWrapper>
-          </CommentSpecification>
-          <FeedbackTextarea placeholder='Feedback for the track...' />
-        </div>
+        <TimestampForm />
         <div>
           {mockFeedbackData.map((data) => (
             <FeedbackCardWrapper>
@@ -72,32 +46,12 @@ const TimestampFeedback: React.FC<TimestampFeedbackProps> = ({}) => {
   );
 };
 
-const TimeInput = styled(Input)`
-  max-width: ${rem(140)};
-`;
-
 const FeedbackCardWrapper = styled.div`
   margin-bottom: ${({ theme }) => theme.spacing.layout2};
 
   :last-child {
     margin-bottom: 0;
   }
-`;
-
-const CommentSpecification = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: ${({ theme }) => theme.spacing.layout3};
-`;
-
-const TimeRangeInputs = styled.div`
-  display: flex;
-  align-items: center;
-`;
-
-const SaveButtonWrapper = styled.div`
-  margin-left: ${({ theme }) => theme.spacing.layout3};
 `;
 
 const Wrapper = styled.div`

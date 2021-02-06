@@ -1,9 +1,9 @@
 import React from 'react';
 import { Container } from 'components/Container';
-import { GeneralFeedback, TimestampFeedback } from './';
+import { GeneralFeedback, TimestampFeedback } from '.';
 import { Section } from 'components/Layout';
 
-const ReviewSection = () => {
+const GiveReviewSection = () => {
   return (
     <Container size='lg'>
       <Section>
@@ -16,4 +16,4 @@ const ReviewSection = () => {
   );
 };
 
-export default ReviewSection;
+export default GiveReviewSection;
