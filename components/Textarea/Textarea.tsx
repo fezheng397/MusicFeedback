@@ -33,7 +33,12 @@ const Textarea: React.FC<TextareaProps> = ({
   );
 };
 
-const TextareaWrapper = styled.div``;
+const TextareaWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  box-sizing: border-box;
+`;
 
 const MainTextarea = styled.textarea`
   ${({ theme }) => css`
