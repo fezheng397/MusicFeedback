@@ -2,14 +2,14 @@ import React from 'react';
 import { Header3, Paragraph2 } from 'components/Typography';
 
 type GeneralFeedbackProps = {
-  description?: string;
+  content?: string;
 };
 
-const GeneralFeedback: React.FC<GeneralFeedbackProps> = ({ description }) => {
+const GeneralFeedback: React.FC<GeneralFeedbackProps> = ({ content }) => {
   return (
     <div>
       <Header3 marginBottom="layout3">General feedback</Header3>
-      <Paragraph2>{description}</Paragraph2>
+      <Paragraph2>{content}</Paragraph2>
     </div>
   );
 };

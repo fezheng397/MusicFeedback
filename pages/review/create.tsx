@@ -1,6 +1,6 @@
 import React from 'react';
 import { Page, Section } from 'components/Layout';
-import { SongSection, ViewReviewSection } from 'page-components/Review';
+import { SongSection, CreateReviewSection } from 'page-components/Review';
 import { Navbar } from 'components/Navbar';
 
 const ReviewDashboard = () => {
@@ -11,7 +11,7 @@ const ReviewDashboard = () => {
         <SongSection />
       </Section>
       <Section>
-        <ViewReviewSection />
+        <CreateReviewSection />
       </Section>
     </Page>
   );
