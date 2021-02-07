@@ -6,12 +6,12 @@ import { mockGeneralFeedback } from 'mocks/api/Feedback';
 
 const CreateReviewSection = () => {
   return (
-    <Container size='lg'>
+    <Container size="lg">
       <Section>
-        <TimestampFeedback mode='create' />
+        <TimestampFeedback mode="create" />
       </Section>
       <Section>
-        <GeneralFeedback content={mockGeneralFeedback.content} />
+        <GeneralFeedback />
       </Section>
     </Container>
   );

@@ -1,10 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
+import { FeedbackTextarea } from 'page-components/Review/styles';
 import { Label2, Label4 } from 'components/Typography';
 import { Input } from 'components/Input';
 import { Button } from 'components/Button';
 import { Settings } from 'components/Icons';
-import { Textarea } from 'components/Textarea';
 import { rem } from 'polished';
 
 const TimestampForm = () => {
@@ -29,10 +29,6 @@ const TimestampForm = () => {
     </Wrapper>
   );
 };
-
-const FeedbackTextarea = styled(Textarea)`
-  min-height: ${rem(250)};
-`;
 
 const Wrapper = styled.div`
   display: flex;
